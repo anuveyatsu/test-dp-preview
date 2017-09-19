@@ -1,0 +1,407 @@
+{
+  "datahub": {
+    "findability": "published",
+    "hash": "8a58c2e4a584149cb41af9adc50817c1",
+    "modified": "2017-08-17T07:11:49.187392",
+    "owner": "core",
+    "ownerid": "core",
+    "stats": {
+      "bytes": 152604,
+      "rowcount": 0,
+      "prettyBytes": "149kB"
+    }
+  },
+  "description": "Data are sourced from the US Government's Earth System Research Laboratory, Global Monitoring Division. Two main series are provided: the Mauna Loa series (which has the longest continuous series since 1958) and a Global Average series (a global average over marine surface sites).",
+  "homepage": "http://www.esrl.noaa.gov/gmd/ccgg/trends",
+  "id": "core/co2-ppm",
+  "license": "ODC-PDDL-1.0",
+  "name": "co2-ppm",
+  "profile": "data-package",
+  "readme": "CO2 PPM - Trends in Atmospheric Carbon Dioxide. Data are sourced from the US Government's Earth System Research Laboratory, Global Monitoring Division. Two main series are provided: the Mauna Loa series (which has the longest continuous series since 1958) and a Global Average series (a global average over marine surface sites).\n\n## Data\n\n### Description\n\n> Data are reported as a dry air mole fraction defined as the number of molecules of carbon dioxide divided by the number of all molecules in air, including CO2 itself, after water vapor has been removed. The mole fraction is expressed as parts per million (ppm). Example: 0.000400 is expressed as 400 ppm.[*][ccgg-trends]\n\n### Citations\n\n1. *Trends in Atmospheric Carbon Dioxide, Mauna Loa, Hawaii.* Dr. Pieter Tans, NOAA/ESRL (www.esrl.noaa.gov/gmd/ccgg/trends/) and Dr. Ralph Keeling, Scripps Institution of Oceanography (scrippsco2.ucsd.edu/).\n1. *Trends in Atmospheric Carbon Dioxide, Global.* Ed Dlugokencky and Pieter Tans, NOAA/ESRL (www.esrl.noaa.gov/gmd/ccgg/trends/).\n\n### Sources\n\n1. \n  * Name: Trends in Atmospheric Carbon Dioxide, Mauna Loa, Hawaii\n  * Web: http://www.esrl.noaa.gov/gmd/ccgg/trends/index.html\n1. \n  * Name: Trends in Atmospheric Carbon Dioxide, Global\n  * Web: http://www.esrl.noaa.gov/gmd/ccgg/trends/global.html\n\n## Data Preparation\n\n### Processing\n\nRun the following script from this directory to download and process the data:\n\n```bash\nmake data\n```\n\n### Resources\n\nThe raw data are output to `./tmp`. The processed data are output to `./data`.\n\n## License\n\n### ODC-PDDL-1.0\n\nThis Data Package is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/\n\n### Notes\n\nThe [terms of use][gmd] of the source dataset list three specific restrictions on public use of these data:\n\n> The information on government servers are in the public domain, unless specifically annotated otherwise, and may be used freely by the public so long as you do not 1) claim it is your own (e.g. by claiming copyright for NOAA information â\u0080\u0093 see next paragraph), 2) use it in a manner that implies an endorsement or affiliation with NOAA, or 3) modify it in content and then present it as official government material.[*][gmd]\n\n[ccgg-trends]: http://www.esrl.noaa.gov/gmd/ccgg/trends/index.html\n[gmd]: http://www.esrl.noaa.gov/gmd/about/disclaimer.html\n",
+  "resources": [
+    {
+      "bytes": 62949,
+      "datahub": {
+        "derivedFrom": [
+          "co2-mm-mlo"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/d83fd70eeef26cbc33904cf84664d99c#.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "d83fd70eeef26cbc33904cf84664d99c",
+      "mediatype": "text/csv",
+      "name": "co2-mm-mlo",
+      "path": "https://pkgstore.datahub.io/core/co2-ppm:co2-mm-mlo_csv/data/co2-mm-mlo_csv.csv",
+      "profile": "data-resource",
+      "rowcount": 706,
+      "schema": {
+        "fields": [
+          {
+            "description": "YYYY-MM-DD",
+            "format": "%Y-%m-%d",
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "description": "",
+            "groupChar": "",
+            "name": "Decimal Date",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "The monthly mean CO2 mole fraction determined from daily averages. If there are missing days concentrated either early or late in the month, the monthly mean is corrected to the middle of the month using the average seasonal cycle. Missing months are denoted by -99.99.",
+            "groupChar": "",
+            "name": "Average",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "Values from the average column and interpolated values where data are missing. Interpolated values are computed in two steps. First, we compute for each month the average seasonal cycle in a 7-year window around each monthly value. In this way the seasonal cycle is allowed to change slowly over time. We then determine the trend value for each month by removing the seasonal cycle; this result is shown in the trend column. Trend values are linearly interpolated for missing months. The interpolated monthly mean is then the sum of the average seasonal cycle value and the trend value for the missing month.",
+            "groupChar": "",
+            "name": "Interpolated",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "Seasonally corrected.",
+            "groupChar": "",
+            "name": "Trend",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "-1 denotes no data for number of daily averages in the month.",
+            "groupChar": "",
+            "name": "Number of Days",
+            "type": "number"
+          }
+        ]
+      },
+      "title": "",
+      "description": "",
+      "alternates": [
+        {
+          "datahub": {
+            "derivedFrom": [
+              "co2-mm-mlo"
+            ],
+            "type": "derived/preview"
+          },
+          "format": "json",
+          "path": "",
+          "name": "co2-mm-mlo_preview",
+          "schema": {
+            "fields": [
+              {
+                "description": "YYYY-MM-DD",
+                "format": "%Y-%m-%d",
+                "name": "Date",
+                "type": "date"
+              },
+              {
+                "decimalChar": ".",
+                "description": "",
+                "groupChar": "",
+                "name": "Decimal Date",
+                "type": "number"
+              },
+              {
+                "decimalChar": ".",
+                "description": "The monthly mean CO2 mole fraction determined from daily averages. If there are missing days concentrated either early or late in the month, the monthly mean is corrected to the middle of the month using the average seasonal cycle. Missing months are denoted by -99.99.",
+                "groupChar": "",
+                "name": "Average",
+                "type": "number"
+              },
+              {
+                "decimalChar": ".",
+                "description": "Values from the average column and interpolated values where data are missing. Interpolated values are computed in two steps. First, we compute for each month the average seasonal cycle in a 7-year window around each monthly value. In this way the seasonal cycle is allowed to change slowly over time. We then determine the trend value for each month by removing the seasonal cycle; this result is shown in the trend column. Trend values are linearly interpolated for missing months. The interpolated monthly mean is then the sum of the average seasonal cycle value and the trend value for the missing month.",
+                "groupChar": "",
+                "name": "Interpolated",
+                "type": "number"
+              },
+              {
+                "decimalChar": ".",
+                "description": "Seasonally corrected.",
+                "groupChar": "",
+                "name": "Trend",
+                "type": "number"
+              },
+              {
+                "decimalChar": ".",
+                "description": "-1 denotes no data for number of daily averages in the month.",
+                "groupChar": "",
+                "name": "Number of Days",
+                "type": "number"
+              }
+            ]
+          }
+        },
+        {
+          "bytes": 62242,
+          "datahub": {
+            "type": "source/tabular"
+          },
+          "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/d83fd70eeef26cbc33904cf84664d99c#.csv",
+          "encoding": "utf-8",
+          "format": "csv",
+          "mediatype": "text/csv",
+          "name": "co2-mm-mlo",
+          "path": "https://pkgstore.datahub.io/core/co2-ppm:non-tabular/data/co2-mm-mlo.csv",
+          "profile": "data-resource",
+          "schema": {
+            "fields": [
+              {
+                "description": "YYYY-MM-DD",
+                "format": "any",
+                "name": "Date",
+                "type": "date"
+              },
+              {
+                "description": "",
+                "name": "Decimal Date",
+                "type": "number"
+              },
+              {
+                "description": "The monthly mean CO2 mole fraction determined from daily averages. If there are missing days concentrated either early or late in the month, the monthly mean is corrected to the middle of the month using the average seasonal cycle. Missing months are denoted by -99.99.",
+                "name": "Average",
+                "type": "number"
+              },
+              {
+                "description": "Values from the average column and interpolated values where data are missing. Interpolated values are computed in two steps. First, we compute for each month the average seasonal cycle in a 7-year window around each monthly value. In this way the seasonal cycle is allowed to change slowly over time. We then determine the trend value for each month by removing the seasonal cycle; this result is shown in the trend column. Trend values are linearly interpolated for missing months. The interpolated monthly mean is then the sum of the average seasonal cycle value and the trend value for the missing month.",
+                "name": "Interpolated",
+                "type": "number"
+              },
+              {
+                "description": "Seasonally corrected.",
+                "name": "Trend",
+                "type": "number"
+              },
+              {
+                "description": "-1 denotes no data for number of daily averages in the month.",
+                "name": "Number of Days",
+                "type": "number"
+              }
+            ]
+          },
+          "prettyBytes": "61kB"
+        },
+        {
+          "bytes": 124806,
+          "datahub": {
+            "derivedFrom": [
+              "co2-mm-mlo"
+            ],
+            "type": "derived/json"
+          },
+          "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/d83fd70eeef26cbc33904cf84664d99c#.csv",
+          "encoding": "utf-8",
+          "format": "json",
+          "hash": "1b75f0595c42d413966647e6f97c32e3",
+          "mediatype": "text/csv",
+          "name": "co2-mm-mlo_json",
+          "path": "https://pkgstore.datahub.io/core/co2-ppm:co2-mm-mlo_json/data/co2-mm-mlo_json.json",
+          "profile": "data-resource",
+          "rowcount": 706,
+          "schema": {
+            "fields": [
+              {
+                "description": "YYYY-MM-DD",
+                "format": "%Y-%m-%d",
+                "name": "Date",
+                "type": "date"
+              },
+              {
+                "description": "",
+                "name": "Decimal Date",
+                "type": "number"
+              },
+              {
+                "description": "The monthly mean CO2 mole fraction determined from daily averages. If there are missing days concentrated either early or late in the month, the monthly mean is corrected to the middle of the month using the average seasonal cycle. Missing months are denoted by -99.99.",
+                "name": "Average",
+                "type": "number"
+              },
+              {
+                "description": "Values from the average column and interpolated values where data are missing. Interpolated values are computed in two steps. First, we compute for each month the average seasonal cycle in a 7-year window around each monthly value. In this way the seasonal cycle is allowed to change slowly over time. We then determine the trend value for each month by removing the seasonal cycle; this result is shown in the trend column. Trend values are linearly interpolated for missing months. The interpolated monthly mean is then the sum of the average seasonal cycle value and the trend value for the missing month.",
+                "name": "Interpolated",
+                "type": "number"
+              },
+              {
+                "description": "Seasonally corrected.",
+                "name": "Trend",
+                "type": "number"
+              },
+              {
+                "description": "-1 denotes no data for number of daily averages in the month.",
+                "name": "Number of Days",
+                "type": "number"
+              }
+            ]
+          },
+          "prettyBytes": "122kB"
+        }
+      ],
+      "prettyBytes": "61kB"
+    },
+    {
+      "bytes": 2771,
+      "datahub": {
+        "derivedFrom": [
+          "co2-annmean-mlo"
+        ],
+        "type": "derived/csv"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3d8b0bce13021a0d8d04770c626ae2aa#.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3d8b0bce13021a0d8d04770c626ae2aa",
+      "mediatype": "text/csv",
+      "name": "co2-annmean-mlo",
+      "path": "https://pkgstore.datahub.io/core/co2-ppm:co2-annmean-mlo_csv/data/co2-annmean-mlo_csv.csv",
+      "profile": "data-resource",
+      "rowcount": 58,
+      "schema": {
+        "fields": [
+          {
+            "description": "",
+            "format": "%Y-%m-%d",
+            "name": "Year",
+            "type": "date"
+          },
+          {
+            "decimalChar": ".",
+            "description": "",
+            "groupChar": "",
+            "name": "Mean",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "description": "The estimated uncertainty in the annual mean is the standard deviation of the differences of annual mean values determined independently by NOAA/ESRL and the Scripps Institution of Oceanography.",
+            "groupChar": "",
+            "name": "Uncertainty",
+            "type": "number"
+          }
+        ]
+      },
+      "title": "",
+      "description": "",
+      "alternates": [
+        {
+          "bytes": 2712,
+          "datahub": {
+            "type": "source/tabular"
+          },
+          "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3d8b0bce13021a0d8d04770c626ae2aa#.csv",
+          "encoding": "utf-8",
+          "format": "csv",
+          "mediatype": "text/csv",
+          "name": "co2-annmean-mlo",
+          "path": "https://pkgstore.datahub.io/core/co2-ppm:non-tabular/data/co2-annmean-mlo.csv",
+          "profile": "data-resource",
+          "schema": {
+            "fields": [
+              {
+                "description": "",
+                "format": "any",
+                "name": "Year",
+                "type": "date"
+              },
+              {
+                "description": "",
+                "name": "Mean",
+                "type": "number"
+              },
+              {
+                "description": "The estimated uncertainty in the annual mean is the standard deviation of the differences of annual mean values determined independently by NOAA/ESRL and the Scripps Institution of Oceanography.",
+                "name": "Uncertainty",
+                "type": "number"
+              }
+            ]
+          },
+          "prettyBytes": "3kB"
+        },
+        {
+          "bytes": 4829,
+          "datahub": {
+            "derivedFrom": [
+              "co2-annmean-mlo"
+            ],
+            "type": "derived/json"
+          },
+          "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/3d8b0bce13021a0d8d04770c626ae2aa#.csv",
+          "encoding": "utf-8",
+          "format": "json",
+          "hash": "31185d494d1a6f6431aee8b8004b6164",
+          "mediatype": "text/csv",
+          "name": "co2-annmean-mlo_json",
+          "path": "https://pkgstore.datahub.io/core/co2-ppm:co2-annmean-mlo_json/data/co2-annmean-mlo_json.json",
+          "profile": "data-resource",
+          "rowcount": 58,
+          "schema": {
+            "fields": [
+              {
+                "description": "",
+                "format": "%Y-%m-%d",
+                "name": "Year",
+                "type": "date"
+              },
+              {
+                "description": "",
+                "name": "Mean",
+                "type": "number"
+              },
+              {
+                "description": "The estimated uncertainty in the annual mean is the standard deviation of the differences of annual mean values determined independently by NOAA/ESRL and the Scripps Institution of Oceanography.",
+                "name": "Uncertainty",
+                "type": "number"
+              }
+            ]
+          },
+          "prettyBytes": "5kB"
+        }
+      ],
+      "prettyBytes": "3kB"
+    }
+  ],
+  "title": "CO2 PPM - Trends in Atmospheric Carbon Dioxide",
+  "version": "0.1.0",
+  "views": [
+    {
+      "name": "graph",
+      "spec": {
+        "group": "Date",
+        "series": [
+          "Interpolated",
+          "Trend"
+        ],
+        "type": "lines-and-points"
+      },
+      "specType": "simple",
+      "title": "Trends in Atmospheric Carbon Dioxide"
+    }
+  ],
+  "path": "https://pkgstore.datahub.io/core/co2-ppm/latest",
+  "readmeSnippet": "CO2 PPM - Trends in Atmospheric Carbon Dioxide. Data are sourced from the US Government's Earth System Research Laboratory, Global Monitoring Division. Two main series are provided: the Mauna Loa series (which has the longest continuous series since 1958) and a Global Average series (a global",
+  "readmeHtml": "<p>CO2 PPM - Trends in Atmospheric Carbon Dioxide. Data are sourced from the US Government’s Earth System Research Laboratory, Global Monitoring Division. Two main series are provided: the Mauna Loa series (which has the longest continuous series since 1958) and a Global Average series (a global average over marine surface sites).</p>\n<h2>Data <a class=\"header-anchor\" href=\"#data\"><i class=\"fa fa-link\"></i></a></h2>\n<h3>Description <a class=\"header-anchor\" href=\"#description\"><i class=\"fa fa-link\"></i></a></h3>\n<blockquote>\n<p>Data are reported as a dry air mole fraction defined as the number of molecules of carbon dioxide divided by the number of all molecules in air, including CO2 itself, after water vapor has been removed. The mole fraction is expressed as parts per million (ppm). Example: 0.000400 is expressed as 400 ppm.<a href=\"http://www.esrl.noaa.gov/gmd/ccgg/trends/index.html\">*</a></p>\n</blockquote>\n<h3>Citations <a class=\"header-anchor\" href=\"#citations\"><i class=\"fa fa-link\"></i></a></h3>\n<ol>\n<li><em>Trends in Atmospheric Carbon Dioxide, Mauna Loa, Hawaii.</em> Dr. Pieter Tans, NOAA/ESRL (<a href=\"http://www.esrl.noaa.gov/gmd/ccgg/trends/\">www.esrl.noaa.gov/gmd/ccgg/trends/</a>) and Dr. Ralph Keeling, Scripps Institution of Oceanography (<a href=\"http://scrippsco2.ucsd.edu/\">scrippsco2.ucsd.edu/</a>).</li>\n<li><em>Trends in Atmospheric Carbon Dioxide, Global.</em> Ed Dlugokencky and Pieter Tans, NOAA/ESRL (<a href=\"http://www.esrl.noaa.gov/gmd/ccgg/trends/\">www.esrl.noaa.gov/gmd/ccgg/trends/</a>).</li>\n</ol>\n<h3>Sources <a class=\"header-anchor\" href=\"#sources\"><i class=\"fa fa-link\"></i></a></h3>\n<ol>\n<li></li>\n</ol>\n<ul>\n<li>Name: Trends in Atmospheric Carbon Dioxide, Mauna Loa, Hawaii</li>\n<li>Web: <a href=\"http://www.esrl.noaa.gov/gmd/ccgg/trends/index.html\">http://www.esrl.noaa.gov/gmd/ccgg/trends/index.html</a></li>\n</ul>\n<ol>\n<li></li>\n</ol>\n<ul>\n<li>Name: Trends in Atmospheric Carbon Dioxide, Global</li>\n<li>Web: <a href=\"http://www.esrl.noaa.gov/gmd/ccgg/trends/global.html\">http://www.esrl.noaa.gov/gmd/ccgg/trends/global.html</a></li>\n</ul>\n<h2>Data Preparation <a class=\"header-anchor\" href=\"#data-preparation\"><i class=\"fa fa-link\"></i></a></h2>\n<h3>Processing <a class=\"header-anchor\" href=\"#processing\"><i class=\"fa fa-link\"></i></a></h3>\n<p>Run the following script from this directory to download and process the data:</p>\n<pre><code class=\"language-bash\">make data\n</code></pre>\n<h3>Resources <a class=\"header-anchor\" href=\"#resources\"><i class=\"fa fa-link\"></i></a></h3>\n<p>The raw data are output to <code>./tmp</code>. The processed data are output to <code>./data</code>.</p>\n<h2>License <a class=\"header-anchor\" href=\"#license\"><i class=\"fa fa-link\"></i></a></h2>\n<h3>ODC-PDDL-1.0 <a class=\"header-anchor\" href=\"#odc-pddl-10\"><i class=\"fa fa-link\"></i></a></h3>\n<p>This Data Package is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href=\"http://www.opendatacommons.org/licenses/pddl/1.0/\">http://www.opendatacommons.org/licenses/pddl/1.0/</a></p>\n<h3>Notes <a class=\"header-anchor\" href=\"#notes\"><i class=\"fa fa-link\"></i></a></h3>\n<p>The <a href=\"http://www.esrl.noaa.gov/gmd/about/disclaimer.html\">terms of use</a> of the source dataset list three specific restrictions on public use of these data:</p>\n<blockquote>\n<p>The information on government servers are in the public domain, unless specifically annotated otherwise, and may be used freely by the public so long as you do not 1) claim it is your own (e.g. by claiming copyright for NOAA information â\u0080\u0093 see next paragraph), 2) use it in a manner that implies an endorsement or affiliation with NOAA, or 3) modify it in content and then present it as official government material.<a href=\"http://www.esrl.noaa.gov/gmd/about/disclaimer.html\">*</a></p>\n</blockquote>\n",
+  "formats": [
+    "csv"
+  ]
+}
