@@ -99,7 +99,7 @@
             "type": "derived/preview"
           },
           "format": "json",
-          "path": "",
+          "path": "https://raw.githubusercontent.com/anuveyatsu/test-dp-preview/master/data/co2-mm-mlo_preview.json",
           "name": "co2-mm-mlo_preview",
           "schema": {
             "fields": [
@@ -396,6 +396,16 @@
       },
       "specType": "simple",
       "title": "Trends in Atmospheric Carbon Dioxide"
+    },
+    {
+      "name": "datahub-preview-co2-mm-mlo",
+      "specType": "table",
+      "datahub": {
+        "type": "preview"
+      },
+      "resources": [
+        "co2-mm-mlo"
+      ]
     }
   ],
   "path": "https://pkgstore.datahub.io/core/co2-ppm/latest",
