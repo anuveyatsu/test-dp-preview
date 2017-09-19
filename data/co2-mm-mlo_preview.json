@@ -1,17 +1,26 @@
 [
   {
-    "a": 1,
-    "b": 2,
-    "c": "c"
+    "Average": 315.71,
+    "Date": "1958-03-01",
+    "Decimal Date": 1958.208,
+    "Interpolated": 315.71,
+    "Number of Days": -1,
+    "Trend": 314.62
   },
   {
-    "a": 1,
-    "b": 2,
-    "c": "c"
+    "Average": 317.45,
+    "Date": "1958-04-01",
+    "Decimal Date": 1958.292,
+    "Interpolated": 317.45,
+    "Number of Days": -1,
+    "Trend": 315.29
   },
   {
-    "a": 1,
-    "b": 2,
-    "c": "c"
+    "Average": 317.5,
+    "Date": "1958-05-01",
+    "Decimal Date": 1958.375,
+    "Interpolated": 317.5,
+    "Number of Days": -1,
+    "Trend": 314.71
   }
 ]
