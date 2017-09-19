@@ -406,6 +406,16 @@
       "resources": [
         "co2-mm-mlo"
       ]
+    },
+    {
+      "name": "datahub-preview-co2-annmean-mlo",
+      "specType": "table",
+      "datahub": {
+        "type": "preview"
+      },
+      "resources": [
+        "co2-annmean-mlo"
+      ]
     }
   ],
   "path": "https://pkgstore.datahub.io/core/co2-ppm/latest",
