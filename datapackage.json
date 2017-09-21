@@ -385,19 +385,6 @@
   "version": "0.1.0",
   "views": [
     {
-      "name": "graph",
-      "spec": {
-        "group": "Date",
-        "series": [
-          "Interpolated",
-          "Trend"
-        ],
-        "type": "lines-and-points"
-      },
-      "specType": "simple",
-      "title": "Trends in Atmospheric Carbon Dioxide"
-    },
-    {
       "name": "datahub-preview-co2-mm-mlo",
       "specType": "table",
       "datahub": {
